@@ -1,24 +1,24 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## The Bacon Coding Challenge
+*Prompt​:*
+Build a one-page site in React with a Rails API. The purpose of this site is to be a job posts
+index page. Somewhere on this page should be an area to view the list of available job posts,
+and an area to post a new job post.
+The job post form should have a variety of input types: textarea, input, radio button, etc. Once a
+form is submitted, the resulting object should be editable somewhere.
+*Technology requirements​:*
+* Front-end: React. Back-end: Rails API.
+* Build your project with git, and post your project to Github.
+What we’re looking for:
+* Design: visual design and code design.
+* Technology competency: Rails, React, JavaScript, HTML, and CSS competencies. A
+grasp of RESTful API design and a sense of good code practices.
+* Communication: appropriate comments, good commit messages.
+*Extra credit (limit yourself!):*
+* integrating an external service or library (Google Maps, d3.js, moment.js, Bluebird,
+Lodash, etc)
+* mobile views
+* using SASS
+* including a README
+* publishing your site live
