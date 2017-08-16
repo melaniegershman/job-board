@@ -26,6 +26,7 @@ gem 'rack-cors', :require => 'rack/cors'
 gem 'pg'
 gem 'faker'
 gem 'jbuilder', '~> 2.7'
+gem 'responders'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
