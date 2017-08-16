@@ -27,6 +27,8 @@ gem 'pg'
 gem 'faker'
 gem 'jbuilder', '~> 2.7'
 gem 'responders'
+gem 'react-rails'
+gem 'jquery'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
