@@ -5,3 +5,15 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+experience = ["Entry-level", "Senior", "Mid-level", "Intern"]
+willingness = [true, false]
+
+jobs = []
+10.times do {
+  jobs.push(Job.create([
+    {name: Faker::job.title},
+    {description: Faker::Lorem.paragraph},
+    {experience: experience.sample},
+    {willing_to_relocate: willingness.sample}
+  ]))
+}
