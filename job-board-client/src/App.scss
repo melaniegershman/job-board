@@ -1,0 +1,196 @@
+@import '../node_modules/css-reset-and-normalize-sass/scss/reset-and-normalize.scss';
+
+$primary-font-color: rgb(98, 98, 98);
+$button-color: rgb(253, 235, 255);
+$job-post-background: #fffff4;
+$job-post-border: darken($job-post-background, 20%);
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.6rem;
+    background-color: #FAFAFA;
+    line-height: 140%;
+}
+
+h3 {
+    font-size: 2.2rem;
+    font-weight: bold;
+}
+
+a {
+    text-decoration: none;
+    background-color: $button-color;
+    text-decoration: none;
+    color: $primary-font-color;
+
+    &:visited {
+
+    }
+
+    &:hover {
+    }
+}
+
+li {
+    list-style-type: none;
+}
+
+.App {
+
+
+    nav {
+        display: table;
+        width: 100%;
+        height: 6rem;
+        background-color: rgb(40, 40, 40);
+        margin-bottom: 3rem;
+        position: relative;
+
+
+        h1 {
+            position: absolute;
+            line-height: 6rem;
+            height: 6rem;
+            left: 2rem;
+            top: 50%;
+            margin-top: -3rem;
+            font-size: 2.5rem;
+            color: white;
+            font-weight: bold;
+
+
+        }
+
+        a.button {
+            height: 4rem;
+            line-height: 4rem;
+            padding: 0 1.5rem;
+            border-radius: 5rem;
+            position: absolute;
+            right: 2rem;;
+            top: 50%;
+            margin-top: -2rem;
+        }
+    }
+
+    .Job-post {
+
+        width: 80%;
+        max-width: 600px;
+        margin: 0 auto;
+
+        li {
+            display: table;
+            margin-bottom: 1.5rem;
+            background-color: white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+            border-radius: 2px;
+            padding: 2rem;
+            color: $primary-font-color;
+
+            >h3 {
+                width: 100%;
+                margin-bottom: 1.5rem;
+            }
+            >p.description {
+                box-sizing: border-box;
+                width: 70%;
+                padding-right: 2.5rem;
+                float: left;
+            }
+            .details {
+                width: 30%;
+                float: right;
+                font-size: 1.4rem;
+
+                p {
+                    span {
+                        font-size: 1.1rem;
+                        display: block;
+                        text-transform: uppercase;
+                        margin-top: 1rem;
+                        margin-bottom: -.5rem;
+                    }
+                    &:first-child span {
+                        margin-top: 0;
+                    }
+
+                }
+
+            }
+        }
+    }
+
+}
+
+
+.App-logo {
+    animation: App-logo-spin infinite 20s linear;
+    height: 80px;
+}
+
+.App-header {
+    background-color: #222;
+    height: 150px;
+    padding: 20px;
+    color: white;
+}
+
+.App-intro {
+    font-size: large;
+}
+
+
+
+section.New-job-form > form {
+    input,
+    textarea {
+        border: 1px solid $button-color;
+        border-radius: 4px;
+        width: 100%;
+        height: 40px;
+
+        &:focus {
+            outline: 1px solid $button-color;
+        }
+
+        &[type="text"] {
+            position: relative;
+            display: block;
+            margin-top: 5px;
+            padding: 10px;
+            font-weight: 500;
+            color: $primary-font-color;
+
+            &::-webkit-input-placeholder,
+            &::placeholder, {
+                font-weight: 400;
+                color: lighten($primary-font-color, 10%);
+            }
+
+            input[type="submit"] {
+                color: $primary-font-color;
+                display: inline;
+                position: absolute;
+                top: -40px;
+                left: 303px;
+                z-index: 1;
+                height: 40px;
+                width: auto;
+                border: 1px solid $button-color;
+            }
+        }
+    }
+}
+@keyframes App-logo-spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}

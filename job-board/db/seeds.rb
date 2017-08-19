@@ -8,12 +8,17 @@ require "faker"
 #   Character.create(name: 'Luke', movie: movies.first)
 experience = ["Entry-level", "Senior", "Mid-level", "Intern"]
 willingness = [true, false]
+employment_type = ["Full-time", "Part-time", "Temp", "Contract"]
+industry = ["Fashion", "Media", "Technology", "Entertainment", "Sales", "Advertising"]
 
-jobs = 10.times.map do
+jobs = 5.times.map do
   Job.create!(
     :name => Faker::Company.profession,
     :description => Faker::Lorem.paragraph,
     :experience => experience.sample,
-    :willing_to_relocate => willingness.sample
+    :willing_to_relocate => willingness.sample,
+    :location => (Faker::Address.city + ", " + Faker::Address.state),
+    :industry => industry.sample,
+    :employment_type => employment_type.sample
   )
 end

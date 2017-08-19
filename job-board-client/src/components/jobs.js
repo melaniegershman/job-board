@@ -36,15 +36,17 @@ export class JobListings extends Component {
                         description={job.description}
                         experience={job.experience}
                         willing_to_relocate={willing_to_relocate}
+                        location={job.location}
+                        industry={job.industry}
+                        employment_type={job.employment_type}
                     />
                 );
             });
 
             return (
-                <div>
-                    <Link to='/jobs/new'>Add New Job Posting</Link>
+                <section className="Job-post">
                     {jobs}
-                </div>
+                </section>
             )
 
         } else {
@@ -58,10 +60,16 @@ export class JobListings extends Component {
 export const Job = props => {
     return (
         <li>
-            <h3>Job Title: {props.name}</h3>
-            <p>Job Description: {props.description}</p>
-            <p>Experience required: {props.experience}</p>
-            <p>Willing to relocate: {props.willing_to_relocate}</p>
+            <h3>{props.name}</h3>
+            <p className="description"><span>Job Description</span>{props.description}</p>
+            <div className="details">
+                <p><span>Experience</span>{props.experience}</p>
+                <p><span>Relocation</span>{props.willing_to_relocate}</p>
+                <p><span>Location</span>{props.location}</p>
+                <p><span>Industry</span>{props.industry}</p>
+                <p><span>Employment Type</span>{props.employment_type}</p>
+            </div>
+
         </li>
     )
 }
