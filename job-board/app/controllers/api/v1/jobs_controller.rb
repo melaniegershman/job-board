@@ -1,5 +1,5 @@
 class Api::V1::JobsController < Api::V1::BaseController
-  skip_before_action :verify_authenticity_token, only: [:create]
+  skip_before_action :verify_authenticity_token, only: [:create, :update]
   before_action :find_job, only: [:show, :update, :destroy]
 
   def index

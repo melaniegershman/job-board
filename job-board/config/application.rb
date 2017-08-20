@@ -13,7 +13,7 @@ module JobBoard
     config.middleware.insert_before 0, "Rack::Cors" do
       allow do
         origins '*'
-        resource '*', :headers => :any, :methods => [:get, :post, :patch, :options]
+        resource '*', :headers => :any, :methods => [:get, :post, :show, :put, :patch, :options]
       end
     end
     # Settings in config/environments/* take precedence over those specified here.
