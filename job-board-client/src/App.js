@@ -27,6 +27,7 @@ const Main = () => {
         <Switch>
             <Route exact path='/jobs' component={JobListings} />
             <Route exact path='/jobs/new' component={JobPostForm} />
+            <Route path='/jobs/edit/:id' component={JobPostForm} />
             <Redirect from='/' to='/jobs' />
         </Switch>
     )
