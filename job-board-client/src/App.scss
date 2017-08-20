@@ -1,9 +1,15 @@
 @import '../node_modules/css-reset-and-normalize-sass/scss/reset-and-normalize.scss';
-$primary-font-color: rgb(98, 98, 98);
-$button-color: rgb(253, 235, 255);
+$primary-font-color: rgb(98, 98, 98); //dark-grey
+$button-text-color: rgb(167, 167, 167); //grey
+
+$button-color: rgb(253, 235, 255); //pink
+$edit-button-color: rgb(25, 182, 74); //green
+
 $job-post-background: #fffff4;
 $job-post-border: darken($job-post-background, 20%);
+
 $nav-background: rgb(40, 40, 40);
+
 
 html {
     font-size: 62.5%;
@@ -23,11 +29,11 @@ h3 {
 
 a {
     text-decoration: none;
-    color: rgb(167, 167, 167);
+    color: $button-text-color;
 
     &:hover {
-        color: rgb(60, 60, 60);
         text-decoration: underline;
+        color: lighten($edit-button-color, 50%)
     }
 }
 
@@ -150,7 +156,7 @@ li {
                 margin-top: 1.5rem;
                 float: left;
                 font-size: 1.4rem;
-                color: rgb(25, 182, 74);
+                color: $edit-button-color;
             }
         }
     }
@@ -210,7 +216,7 @@ li {
         &[type="submit"] {
             color: white;
             border-radius: .5rem;
-            background-color: rgb(25, 182, 74);
+            background-color: $edit-button-color;
             font-weight: bold;
             padding: 1.7rem;
             border: 0 none;

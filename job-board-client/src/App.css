@@ -351,8 +351,8 @@ a {
   text-decoration: none;
   color: #a7a7a7; }
   a:hover {
-    color: #3c3c3c;
-    text-decoration: underline; }
+    text-decoration: underline;
+    color: #d5f9e0; }
 
 li {
   list-style-type: none; }
