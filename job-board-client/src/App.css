@@ -344,15 +344,15 @@ body {
 
 h3 {
   font-size: 2.2rem;
-  font-weight: bold; }
+  font-weight: bold;
+  margin-bottom: 1.5rem; }
 
 a {
   text-decoration: none;
-  background-color: #fdebff;
-  color: #626262; }
+  color: #a7a7a7; }
   a:hover {
-    border: solid 1px #fdebff;
-    background-color: white; }
+    text-decoration: underline;
+    color: #d5f9e0; }
 
 li {
   list-style-type: none; }
@@ -401,8 +401,6 @@ li {
   position: relative;
   height: 6rem; }
   .App .Job-board header > h3 {
-    font-size: 2rem;
-    font-weight: bold;
     vertical-align: middle;
     line-height: 6rem; }
   .App .Job-board header a.button {
@@ -413,7 +411,10 @@ li {
     position: absolute;
     right: 0;
     top: 50%;
-    margin-top: -2rem; }
+    margin-top: -2rem;
+    background-color: #fdebff;
+    color: #626262;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08); }
 
 .App .Job-board li .label {
   font-size: 1.1rem;
@@ -422,8 +423,7 @@ li {
   letter-spacing: 0.03rem; }
 
 .App .Job-board li h3 {
-  width: 100%;
-  margin-bottom: 1.5rem; }
+  width: 100%; }
 
 .App .Job-board li p.description {
   box-sizing: border-box;
@@ -440,6 +440,12 @@ li {
     margin-bottom: -.5rem; }
   .App .Job-board li div.details p:first-child label {
     margin-top: 0; }
+
+.App .Job-board li div.details + a.button {
+  margin-top: 1.5rem;
+  float: left;
+  font-size: 1.4rem;
+  color: #19b64a; }
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
@@ -484,8 +490,14 @@ li {
     color: #959595; }
   .New-job-form > form input[type="submit"],
   .New-job-form > form textarea[type="submit"] {
-    color: #626262;
-    border: 1px solid #fdebff; }
+    color: white;
+    border-radius: .5rem;
+    background-color: #19b64a;
+    font-weight: bold;
+    padding: 1.7rem;
+    border: 0 none;
+    height: auto;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); }
   .New-job-form > form input[type="radio"],
   .New-job-form > form textarea[type="radio"] {
     display: inline;

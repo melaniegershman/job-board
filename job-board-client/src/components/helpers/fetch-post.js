@@ -2,22 +2,30 @@ import encodeObject from "./encode-object";
 
 export default function fetchPost(stateObj, cb) {
 
-    const urlEncodedData = encodeObject(stateObj);
+    const urlEncodedData = encodeObject(stateObj.data);
 
-    fetch('http://localhost:3000/api/v1/jobs', {
+    let requestURL = "http://localhost:3000/api/v1/jobs/";
+    let requestObj = {
         method: 'POST',
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/x-www-form-urlencoded'
         },
         body: urlEncodedData
-    })
-    .then(response => response.json())
-    .then((response) => {
-        let submittedState = Object.assign({}, stateObj);
-        submittedState.submitted = true;
+    }
 
-        cb(submittedState);
-    });
+    if (stateObj.isEditing) {
+        requestURL = `http://localhost:3000/api/v1/jobs/${stateObj.data.id}`;
+        requestObj.method = 'PUT';
+    }
+
+    fetch(requestURL, requestObj)
+        .then(response => response.json())
+        .then((response) => {
+            let submittedState = Object.assign({}, stateObj);
+            submittedState.submitted = true;
+
+            cb(submittedState);
+        });
 
 }

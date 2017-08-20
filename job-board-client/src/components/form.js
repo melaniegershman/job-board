@@ -15,12 +15,30 @@ class JobPostForm extends Component {
                 location: '',
                 industry: '',
                 employment_type: '',
+                id: this.props.match.params.id || ''
             },
-            submitted: false
+            submitted: false,
+            isEditing: this.props.match.params.id ? true : false
         }
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    componentDidMount() {
+        if (this.state.isEditing) this.loadData();
+    }
+
+    loadData() {
+        fetch(`http://localhost:3000/api/v1/jobs/${this.props.match.params.id}`)
+            .then(response => response.json())
+            .then(data => {
+                let newState = Object.assign({}, this.state);
+                newState.data = data;
+
+                this.setState(newState);
+            })
+            .catch(error => console.log(error));
     }
 
     handleChange(event) {
@@ -35,13 +53,17 @@ class JobPostForm extends Component {
     handleSubmit(event) {
         event.preventDefault();
 
-        fetchPost(this.state.data, (submittedState) => this.setState(submittedState));
+        fetchPost(this.state, (submittedState) => this.setState(submittedState));
     }
 
     render () {
         let redirect = this.state.submitted ? <Redirect to='/jobs' /> : ""
+        let heading = this.state.isEditing ? `Edit job listing` : "Post a new job";
+        let buttonCTA = this.state.isEditing ? "Edit job" : "Add new job"
+
         return (
             <section className="New-job-form Job-entry">
+                <h3>{heading}</h3>
                 <form onSubmit={this.handleSubmit}>
                     <label className="label">Job Title
                         <input type="text" name="name" placeholder='Enter the title of the job position' value={this.state.data.name} onChange={this.handleChange} />
@@ -79,7 +101,7 @@ class JobPostForm extends Component {
                         </label>
                     </label>
 
-                    <input type="submit" value="Submit Job Posting" />
+                    <input type="submit" value={buttonCTA} />
                     {redirect}
                 </form>
             </section>

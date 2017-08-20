@@ -28,7 +28,8 @@ export class JobListings extends Component {
     render() {
         if(this.state.jobs) {
             let jobs = this.state.jobs.map( job => {
-                var willing_to_relocate = (job.willing_to_relocate) ? "Yes" : "No";
+                let willing_to_relocate = (job.willing_to_relocate) ? "Yes" : "No";
+                let editLink = `/jobs/edit/${job.id}`
                 return (
                     <Job
                         key={job.id}
@@ -39,6 +40,7 @@ export class JobListings extends Component {
                         location={job.location}
                         industry={job.industry}
                         employment_type={job.employment_type}
+                        editLink={editLink}
                     />
                 );
             });
@@ -62,6 +64,7 @@ export class JobListings extends Component {
 
 
 export const Job = props => {
+
     return (
         <li className="Job-entry">
             <h3>{props.name}</h3>
@@ -73,7 +76,7 @@ export const Job = props => {
                 <p><span className="label">Industry</span>{props.industry}</p>
                 <p><span className="label">Employment Type</span>{props.employment_type}</p>
             </div>
-
+            <Link className="button" to={props.editLink}>Edit Job Posting</Link>
         </li>
     )
 }
