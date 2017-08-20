@@ -1,13 +1,14 @@
 class Api::V1::JobsController < Api::V1::BaseController
+  skip_before_action :verify_authenticity_token, only: [:create]
   before_action :find_job, only: [:show, :update, :destroy]
 
   def index
-    jobs = Job.all
+    jobs = Job.all.order(:created_at)
     respond_with jobs
   end
 
   def create
-    respond_with :api, :v1, Job.create(job_params)
+    respond_with :api, :v1, Job.create!(job_params)
   end
 
   def show
@@ -27,7 +28,7 @@ class Api::V1::JobsController < Api::V1::BaseController
   private
 
   def job_params
-    params.require(:job).permit(:id, :name, :description, :experience, :willing_to_relocate)
+    params.permit(:name, :description, :experience, :willing_to_relocate, :location, :industry, :employment_type)
   end
 
   def find_job

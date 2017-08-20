@@ -1,53 +1,36 @@
 import React, { Component } from 'react';
 import './App.css';
-import Job from './components/jobs';
+import { JobListings} from './components/jobs';
 import JobPostForm from './components/form';
-
-class App extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            jobs: []
-        };
-    }
-
-    loadData() {
-        fetch('http://localhost:3000/api/v1/jobs.json')
-            .then(response => response.json())
-            .then(data => {
-                this.setState({
-                    jobs: data
-                });
-            });
-    }
-
-    componentDidMount() {
-        this.loadData();
-    }
+import { Route, Switch, Redirect, Link} from 'react-router-dom'
 
 
-    render() {
-        if(this.state.jobs) {
-            let jobs = this.state.jobs.map( job => {
-                return (
-                    <Job key={job.id} name={job.name} description={job.description} experience={job.experience} />
-                );
-            });
-
-            return (
-                <div>
-                    <div>{jobs}</div>
-                    <JobPostForm />
-                </div>
-            )
-
-        } else {
-            return <div></div>
-        }
-    }
+const App = () => {
+    return (
+        <div className="App">
+            <Header />
+            <Main />
+        </div>
+    )
 }
+const Header = (props, context) => {
+    console.log("pathname ", context);
+    return (
 
-
+        <nav>
+            <h1><Link to='/jobs/'>Job Board</Link></h1>
+        </nav>
+    )
+}
+const Main = () => {
+    return (
+        <Switch>
+            <Route exact path='/jobs' component={JobListings} />
+            <Route exact path='/jobs/new' component={JobPostForm} />
+            <Redirect from='/' to='/jobs' />
+        </Switch>
+    )
+}
 
 
 export default App;

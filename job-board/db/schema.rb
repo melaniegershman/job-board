@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170815230208) do
+ActiveRecord::Schema.define(version: 20170819194230) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,6 +50,9 @@ ActiveRecord::Schema.define(version: 20170815230208) do
     t.boolean  "willing_to_relocate"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
+    t.string   "location"
+    t.string   "industry"
+    t.string   "employment_type"
   end
 
   create_table "journals", force: :cascade do |t|
