@@ -28,7 +28,7 @@ class Api::V1::JobsController < Api::V1::BaseController
   private
 
   def job_params
-    params.permit(:name, :description, :experience, :willing_to_relocate)
+    params.permit(:name, :description, :experience, :willing_to_relocate, :location, :industry, :employment_type)
   end
 
   def find_job

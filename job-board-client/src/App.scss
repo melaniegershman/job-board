@@ -1,9 +1,9 @@
 @import '../node_modules/css-reset-and-normalize-sass/scss/reset-and-normalize.scss';
-
 $primary-font-color: rgb(98, 98, 98);
 $button-color: rgb(253, 235, 255);
 $job-post-background: #fffff4;
 $job-post-border: darken($job-post-background, 20%);
+$nav-background: rgb(40, 40, 40);
 
 html {
     font-size: 62.5%;
@@ -23,14 +23,11 @@ h3 {
 a {
     text-decoration: none;
     background-color: $button-color;
-    text-decoration: none;
     color: $primary-font-color;
 
-    &:visited {
-
-    }
-
     &:hover {
+        border: solid 1px $button-color;
+        background-color: white;
     }
 }
 
@@ -39,16 +36,13 @@ li {
 }
 
 .App {
-
-
     nav {
         display: table;
         width: 100%;
         height: 6rem;
-        background-color: rgb(40, 40, 40);
+        background-color: $nav-background;
         margin-bottom: 3rem;
         position: relative;
-
 
         h1 {
             position: absolute;
@@ -58,75 +52,103 @@ li {
             top: 50%;
             margin-top: -3rem;
             font-size: 2.5rem;
-            color: white;
             font-weight: bold;
 
+            a {
+                background-color: $nav-background;
+                color: white;
 
-        }
-
-        a.button {
-            height: 4rem;
-            line-height: 4rem;
-            padding: 0 1.5rem;
-            border-radius: 5rem;
-            position: absolute;
-            right: 2rem;;
-            top: 50%;
-            margin-top: -2rem;
+                &:hover {
+                    border: none;
+                    color: $button-color;
+                }
+            }
         }
     }
 
-    .Job-post {
+    .Job-entry {
+        display: table;
+        width: 100%;
+        margin-bottom: 1.5rem;
+        background-color: white;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+        border-radius: 2px;
+        padding: 2rem;
+        color: $primary-font-color;
+        box-sizing: border-box;
+    }
 
+    .Job-board,
+    .New-job-form {
         width: 80%;
         max-width: 600px;
         margin: 0 auto;
+    }
+
+    .Job-board {
+        header {
+            position: relative;
+            height: 6rem;
+
+            > h3 {
+                font-size: 2rem;
+                font-weight: bold;
+                vertical-align: middle;
+                line-height: 6rem;
+            }
+
+            a.button {
+                height: 4rem;
+                line-height: 4rem;
+                padding: 0 1.5rem;
+                border-radius: 5rem;
+                position: absolute;
+                right: 0;
+                top: 50%;
+                margin-top: -2rem;
+            }
+        }
 
         li {
-            display: table;
-            margin-bottom: 1.5rem;
-            background-color: white;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
-            border-radius: 2px;
-            padding: 2rem;
-            color: $primary-font-color;
+            .label {
+                font-size: 1.1rem;
+                display: block;
+                text-transform: uppercase;
+                letter-spacing: 0.03rem;
+            }
 
-            >h3 {
+            h3 {
                 width: 100%;
                 margin-bottom: 1.5rem;
             }
-            >p.description {
+
+            p.description {
                 box-sizing: border-box;
                 width: 70%;
                 padding-right: 2.5rem;
                 float: left;
             }
-            .details {
+
+            div.details {
                 width: 30%;
                 float: right;
                 font-size: 1.4rem;
 
                 p {
-                    span {
-                        font-size: 1.1rem;
-                        display: block;
-                        text-transform: uppercase;
+                    label {
                         margin-top: 1rem;
                         margin-bottom: -.5rem;
                     }
-                    &:first-child span {
+
+                    &:first-child label {
                         margin-top: 0;
                     }
-
                 }
-
             }
         }
     }
-
 }
-
-
+// CREATE REACT APP STYLING
 .App-logo {
     animation: App-logo-spin infinite 20s linear;
     height: 80px;
@@ -142,49 +164,82 @@ li {
 .App-intro {
     font-size: large;
 }
+// END CREATE REACT APP STYLING
+.New-job-form {
+    .label {
+        font-size: 1.1rem;
+        display: block;
+        text-transform: uppercase;
+        letter-spacing: 0.03rem;
+        font-weight: bold;
+    }
+}
 
-
-
-section.New-job-form > form {
+.New-job-form > form {
     input,
     textarea {
+        height: 4rem;
+        margin: 0 auto;
         border: 1px solid $button-color;
-        border-radius: 4px;
-        width: 100%;
-        height: 40px;
+        border-radius: .4rem;
+        margin-bottom: 1.3rem;
+        display: block;
 
         &:focus {
             outline: 1px solid $button-color;
         }
 
         &[type="text"] {
-            position: relative;
-            display: block;
-            margin-top: 5px;
-            padding: 10px;
+            width: 100%;
             font-weight: 500;
             color: $primary-font-color;
+        }
+        &::-webkit-input-placeholder,
+        &::placeholder {
+            font-weight: 400;
+            color: lighten($primary-font-color, 20%);
+        }
 
-            &::-webkit-input-placeholder,
-            &::placeholder, {
-                font-weight: 400;
-                color: lighten($primary-font-color, 10%);
+        &[type="submit"] {
+            color: $primary-font-color;
+            border: 1px solid $button-color;
+        }
+
+        &[type="radio"] {
+            display: inline;
+            padding: 0;
+            margin: 0;
+            height: auto;
+        }
+    }
+
+    > label.label {
+        >span.label {
+            width: 100%;
+        }
+
+        > label.label {
+            display: inline-block;
+            margin-left: 2rem;
+            height: 4rem;
+            line-height: 4rem;
+
+            .label {
+                float: left;
             }
 
-            input[type="submit"] {
-                color: $primary-font-color;
-                display: inline;
-                position: absolute;
-                top: -40px;
-                left: 303px;
-                z-index: 1;
-                height: 40px;
-                width: auto;
-                border: 1px solid $button-color;
+            .label + input {
+                margin-left: 1rem;
             }
+
+        }
+
+        > span.label + label.label {
+            margin-left: 0;
         }
     }
 }
+
 @keyframes App-logo-spin {
     from {
         transform: rotate(0deg);

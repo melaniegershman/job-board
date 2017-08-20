@@ -44,7 +44,11 @@ export class JobListings extends Component {
             });
 
             return (
-                <section className="Job-post">
+                <section className="Job-board">
+                    <header>
+                        <h3>Today's jobs</h3>
+                        <Link className="button" to='/jobs/new'>Add New Job Posting</Link>
+                    </header>
                     {jobs}
                 </section>
             )
@@ -59,15 +63,15 @@ export class JobListings extends Component {
 
 export const Job = props => {
     return (
-        <li>
+        <li className="Job-entry">
             <h3>{props.name}</h3>
-            <p className="description"><span>Job Description</span>{props.description}</p>
+            <p className="description"><span className="label">Job Description</span>{props.description}</p>
             <div className="details">
-                <p><span>Experience</span>{props.experience}</p>
-                <p><span>Relocation</span>{props.willing_to_relocate}</p>
-                <p><span>Location</span>{props.location}</p>
-                <p><span>Industry</span>{props.industry}</p>
-                <p><span>Employment Type</span>{props.employment_type}</p>
+                <p><span className="label">Experience</span>{props.experience}</p>
+                <p><span className="label">Relocation</span>{props.willing_to_relocate}</p>
+                <p><span className="label">Location</span>{props.location}</p>
+                <p><span className="label">Industry</span>{props.industry}</p>
+                <p><span className="label">Employment Type</span>{props.employment_type}</p>
             </div>
 
         </li>

@@ -13,11 +13,12 @@ const App = () => {
         </div>
     )
 }
-const Header = () => {
+const Header = (props, context) => {
+    console.log("pathname ", context);
     return (
+
         <nav>
-            <h1>Job Board</h1>
-            <Link className="button" to='/jobs/new'>Add New Job Posting</Link>
+            <h1><Link to='/jobs/'>Job Board</Link></h1>
         </nav>
     )
 }
