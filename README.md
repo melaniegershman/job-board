@@ -5,12 +5,13 @@ This is a repo for The Bacon's August 2017 coding challenge, to create a jobs po
 To start Rails API:
 
 * Run `bundle install`
-* Run `rails server`
+* Run `rails server` 
 
 To start React:
 
 * Run `npm install`
 * Run `npm start`
+* Navigate to `http://localhost:8080/jobs/`
 
 -----
 
