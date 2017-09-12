@@ -3,7 +3,7 @@ class Api::V1::JobsController < Api::V1::BaseController
   before_action :find_job, only: [:show, :update, :destroy]
 
   def index
-    jobs = Job.all.order(:created_at)
+    jobs = Job.order('created_at DESC')
     respond_with jobs
   end
 
